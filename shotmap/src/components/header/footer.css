@@ -1,0 +1,32 @@
+/* Footer Styles */
+.footer {
+    background: #166D3B; 
+    color: white;
+    text-align: center;
+    padding: 10px 20px; 
+    font-size: 1em;
+    position: fixed; 
+    bottom: 0;
+    left: 0; 
+    width: 100%; 
+    z-index: 1000;
+}
+
+.footer p {
+    margin: 0;
+}
+
+body {
+    margin: 0; 
+}
+
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; 
+    padding: 80px 20px 40px;
+}

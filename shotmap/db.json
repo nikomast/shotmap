@@ -1,0 +1,56 @@
+{
+  "clickHistory": {
+    "Team A": [
+      {
+        "id": 1,
+        "firstClick": { "row": 5, "col": 3 },
+        "secondClick": { "row": 8, "col": 14 },
+        "timeBetweenClicks": 10.5,
+        "shotOccurred": "Yes",
+        "goalScored": "No"
+      },
+      {
+        "id": 2,
+        "firstClick": { "row": 4, "col": 7 },
+        "secondClick": { "row": 7, "col": 24 },
+        "timeBetweenClicks": 25.2,
+        "shotOccurred": "Yes",
+        "goalScored": "Yes"
+      },
+      {
+        "id": 3,
+        "firstClick": { "row": 3, "col": 20 },
+        "secondClick": { "row": 3, "col": 28 },
+        "timeBetweenClicks": 20.1,
+        "shotOccurred": "Yes",
+        "goalScored": "Yes"
+      }
+    ],
+    "Team B": [
+      {
+        "id": 1,
+        "firstClick": { "row": 5, "col": 6 },
+        "secondClick": { "row": 4, "col": 15 },
+        "timeBetweenClicks": 40.8,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 2,
+        "firstClick": { "row": 6, "col": 15 },
+        "secondClick": { "row": 7, "col": 26 },
+        "timeBetweenClicks": 46.7,
+        "shotOccurred": "Yes",
+        "goalScored": "Yes"
+      },
+      {
+        "id": 3,
+        "firstClick": { "row": 9, "col": 15 },
+        "secondClick": { "row": 5, "col": 16 },
+        "timeBetweenClicks": 30.3,
+        "shotOccurred": "Yes",
+        "goalScored": "No"
+      }
+    ]
+  }
+}

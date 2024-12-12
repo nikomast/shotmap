@@ -1,0 +1,72 @@
+/* Login.css */
+
+/* Center the login form on the page */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background-color, #1a1a1a);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Input fields */
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.8em;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+    transition: border-color 0.25s;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #646cff;
+    outline: none;
+  }
+  
+  /* Login button */
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.8em;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: #646cff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.25s, border-color 0.25s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #535bf2;
+  }
+  
+  button[type="submit"]:focus {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  /* Add media query for smaller screens */
+  @media (max-width: 768px) {
+    form {
+      padding: 1.5rem;
+      width: 90%;
+    }
+  
+    input[type="email"],
+    input[type="password"],
+    button[type="submit"] {
+      font-size: 0.9em;
+    }
+  }
+  

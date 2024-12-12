@@ -1,0 +1,41 @@
+.dataGrid-container{
+    margin-top: 150px;
+    margin-bottom: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;   
+    height: 50vh;   
+  }
+
+  .legend {
+    margin-bottom: 1rem;
+  }
+  
+  .legend h3 {
+    align-self: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .legend ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #000;
+  }
+  
+  .dataGrid-container .grid-cell:hover {
+    background-color: transparent !important;
+  }
