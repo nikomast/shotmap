@@ -15,12 +15,10 @@ const App = () => {
     <div>
       {isAuthenticated ? (
         <div>
-          <h1>Welcome!</h1>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <>
-         {/** <Register /> */}
           <Login onLogin={() => setIsAuthenticated(true)} />
         </>
       )}

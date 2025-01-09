@@ -5,7 +5,7 @@ import "./clickCharts.css"
 const ClickChart = ({ data }) => {
   return (
     <div className="chart-container">
-      <h2>Action chart's</h2>
+      <h2>Action's</h2>
       <BarChart
         width={500}
         height={300}

@@ -1,6 +1,6 @@
 /* Footer Styles */
 .footer {
-    background: #166D3B; 
+    background: black; 
     color: white;
     text-align: center;
     padding: 10px 20px; 
@@ -29,4 +29,11 @@ body {
 main {
     flex: 1; 
     padding: 80px 20px 40px;
+}
+
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 5px 0px;
+    }
 }

@@ -1,9 +1,10 @@
-import { useLogin } from '../../../context/login';
+import { useLogin } from '../../../context/loginContext';
+
 
 const LogoutButton = () => {
   const { logout } = useLogin();
 
-  return <button onClick={logout}>Logout</button>;
+  return <button className="nav-button" onClick={logout}>Logout</button>;
 };
 
 export default LogoutButton;

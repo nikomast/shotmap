@@ -1,34 +1,34 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import "./header.css"
-import "./footer.css"
-import { useLogin } from '../../context/login.jsx';
+import { Outlet, Link } from "react-router-dom";
+import "./header.css";
+import "./footer.css";
+import { useLogin } from '../../context/loginContext.jsx';
 import LogoutButton from '../accounts/logout/logout_button.jsx';
-import { Link } from "react-router-dom";
 
 const Layout = () => {
   const { user } = useLogin();
   return (
     <div>
       <header className="header">
-      <nav>
-        <Link to="/">Instrument</Link>
-        <Link to="/history">History</Link>
-        {user ? (
-          <>
-            <p>Welcome, {user.email}</p>
-            <LogoutButton />
-          </>
-        ) : (
-          <Link to="/login">Login</Link>
-        )}
-      </nav>
+        <nav>
+          <Link to="/" className="nav-button">Tracker</Link>
+          <Link to="/history" className="nav-button">History</Link>
+          <Link to="/predictions" className="nav-button">Predictions</Link>
+          <Link to="/about" className="nav-button">About</Link>
+          {user ? (
+            <>
+              <LogoutButton/>
+            </>
+          ) : (
+            <Link to="/login" className="nav-button">Login</Link>
+          )}
+        </nav>
       </header>
       <main>
         <Outlet />
       </main>
       <footer className="footer">
-        <p>&copy; 2024 Niko Mast.</p>
+        <p>&copy; 2025 Niko Mast.</p>
       </footer>
     </div>
   );

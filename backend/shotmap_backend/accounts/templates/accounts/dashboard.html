@@ -1,0 +1,262 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="content">
+        
+        {% if messages %}
+        <div class="messages">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+        <h1>Dashboard</h1>
+        <h2>Welcome, {{ user.username }}</h2>
+        <a href="{% url 'profile' %}">Edit Profile</a>
+
+        <h2>Series</h2>
+        <div class="container">
+            <ul>
+                {% for s in series %}
+                <li>
+                    <a href="#" class="series-link" data-series-id="{{ s.id }}">
+                        {{ s.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <button id="show-modifySeries-form" style="display: none;">Modify Series</button>
+        <div id="modifySeries-form-container" style="display: none;">
+            <form method="post" action="{% url 'modify-series' %}">
+                {% csrf_token %}
+                <input type="hidden" name="series_id" id="series-id-input">
+                {{ series_form.as_p }}
+                <div class="form-buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" id="cancel-modifySeries-form">Cancel</button>
+                </div>
+            </form>
+        </div>
+        
+        
+
+        <button id="show-series-form">Add Series</button>
+        <div id="series-form-container" style="display: none;">
+            <form method="post" action="{% url 'add-series' %}">
+                {% csrf_token %}
+                {{ series_form.as_p }}
+                <div class="form-buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" id="cancel-series-form">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <h2>Your Teams</h2>
+        <div class="container">
+            <ul id="teams-list">
+                {% for t in teams %}
+                <li>
+                    <a href="#" class="team-link" data-team-id="{{ t.id }}">
+                        {{ t.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <button id="show-team-form">Add Team</button>
+        <div id="team-form-container" style="display: none;">
+            <form method="post" action="{% url 'add-team' %}">
+                {% csrf_token %}
+                {{ team_form.as_p }}
+                <div class="form-buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" id="cancel-team-form">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+
+        <h2>Your Matches</h2>
+        <div class="container">
+            <ul id="matches-list">
+                {% for m in matches %}
+                <li>
+                    {{ m.team.name }} vs {{ m.opponent.name }} 
+                    on {{ m.match_date }} ({{ m.result }})
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="buttons">
+            <button id="reset-filters">Reset Filters</button>
+            <form method="post" action="{% url 'user-logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<script>
+
+    document.getElementById("show-series-form").addEventListener("click", () => {
+        document.getElementById("series-form-container").style.display = "block";
+    });
+    
+    document.getElementById("show-team-form").addEventListener("click", () => {
+        document.getElementById("team-form-container").style.display = "block";
+    });
+    
+    document.getElementById("cancel-series-form").addEventListener("click", () => {
+        document.getElementById("series-form-container").style.display = "none";
+    });
+    
+    document.getElementById("cancel-team-form").addEventListener("click", () => {
+        document.getElementById("team-form-container").style.display = "none";
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const seriesLinks = document.querySelectorAll("a.series-link");
+        const teamsList = document.querySelector("#teams-list");
+        const matchesList = document.querySelector("#matches-list");
+        const resetButton = document.querySelector("#reset-filters");
+
+        const modifySeriesButton = document.getElementById("show-modifySeries-form");
+        const modifySeriesFormContainer = document.getElementById("modifySeries-form-container");
+        const seriesIdInput = document.getElementById("series-id-input");
+
+
+        let selectedSeriesId = null;
+        let selectedTeamId = null;
+    
+        selectedSeriesId = localStorage.getItem("selectedSeries");
+        selectedTeamId = localStorage.getItem("selectedTeam");
+    
+        if (selectedSeriesId || selectedTeamId) {
+            fetchAndUpdate(`/filter/?series=${selectedSeriesId || ""}&team=${selectedTeamId || ""}`);
+        }
+    
+        seriesLinks.forEach(link => {
+            link.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const seriesId = link.getAttribute("data-series-id");
+                selectedTeamId = null;
+                if (selectedSeriesId === seriesId) {
+                    selectedSeriesId = null;
+                    modifySeriesButton.style.display = "none";
+                    modifySeriesFormContainer.style.display = "none";
+                    localStorage.removeItem("selectedSeries");
+                    link.classList.remove("selected");
+                } else {
+                    seriesLinks.forEach(link => link.classList.remove("selected"));
+                    modifySeriesButton.style.display = "inline-block";
+                    modifySeriesFormContainer.style.display = "none";
+                    link.classList.add("selected");
+                    selectedSeriesId = seriesId;
+                    seriesIdInput.value = seriesId;
+                    localStorage.setItem("selectedSeries", selectedSeriesId);
+                }
+    
+                fetchAndUpdate(`/filter/?series=${selectedSeriesId || ""}&team=${selectedTeamId || ""}`);
+            });
+        });
+
+        modifySeriesButton.addEventListener("click", () => {
+            modifySeriesFormContainer.style.display = "block";
+        });
+
+        document.getElementById("cancel-modifySeries-form").addEventListener("click", () => {
+            modifySeriesFormContainer.style.display = "none";
+        });
+    
+        function attachTeamListeners() {
+            const teamLinks = document.querySelectorAll("a.team-link");
+    
+            teamLinks.forEach(link => {
+                link.addEventListener("click", async (e) => {
+                    e.preventDefault();
+    
+                    const teamId = link.getAttribute("data-team-id");
+    
+                    if (selectedTeamId === teamId) {
+                        selectedTeamId = null;
+                        localStorage.removeItem("selectedTeam");
+                        link.classList.remove("selected");
+                    } else {
+                        document.querySelectorAll("a.team-link").forEach(link => link.classList.remove("selected"));
+                        link.classList.add("selected");
+                        selectedTeamId = teamId;
+                        localStorage.setItem("selectedTeam", selectedTeamId);
+                    }
+    
+                    fetchAndUpdate(`/filter/?series=${selectedSeriesId || ""}&team=${selectedTeamId || ""}`);
+                });
+            });
+        }
+    
+        resetButton.addEventListener("click", async () => {
+            selectedSeriesId = null;
+            selectedTeamId = null;
+            localStorage.removeItem("selectedSeries");
+            localStorage.removeItem("selectedTeam");
+            seriesLinks.forEach(link => link.classList.remove("selected"));
+            modifySeriesButton.style.display = "none";
+    
+            const response = await fetch(`/filter/`);
+            const data = await response.json();
+    
+            updateLists(data);
+    
+            document.querySelectorAll(".selected").forEach(el => el.classList.remove("selected"));
+    
+            attachTeamListeners();
+        });
+    
+        function updateLists(data) {
+            teamsList.innerHTML = data.teams.map(team =>
+                `<li>
+                    <a href="#" class="team-link ${team.selected ? "selected" : ""}" data-team-id="${team.id}">
+                        ${team.name}
+                    </a>
+                </li>`
+            ).join("");
+        
+            matchesList.innerHTML = data.matches.map(match =>
+                `<li>${match.team} vs ${match.opponent} on ${match.date} (${match.result})</li>`
+            ).join("");
+        }
+        
+    
+        async function fetchAndUpdate(url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            updateLists(data);
+            attachTeamListeners();
+        }
+    
+        attachTeamListeners();
+    });
+    
+    
+  </script>
+
+    

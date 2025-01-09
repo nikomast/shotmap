@@ -1,0 +1,9 @@
+virtuaaliympäristö päälle
+source venv/bin/activate ja deactivate
+Käyttäjän nollaus
+python manage.py createsuperuser
+
+Vaatimusten päivitys
+pip freeze > requirements.txt
+
+Secret key menee google cloudin kautta. Tieto löytyy .envistä

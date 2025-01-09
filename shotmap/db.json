@@ -19,11 +19,67 @@
       },
       {
         "id": 3,
-        "firstClick": { "row": 3, "col": 20 },
-        "secondClick": { "row": 3, "col": 28 },
+        "firstClick": { "row": 3, "col": 15 },
+        "secondClick": { "row": 5, "col": 18 },
         "timeBetweenClicks": 20.1,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 4,
+        "firstClick": { "row": 3, "col": 17 },
+        "secondClick": { "row": 3, "col": 18 },
+        "timeBetweenClicks": 7.3,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 5,
+        "firstClick": { "row": 3, "col": 20 },
+        "secondClick": { "row": 4, "col": 18 },
+        "timeBetweenClicks": 15.8,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 6,
+        "firstClick": { "row": 2, "col": 5 },
+        "secondClick": { "row": 6, "col": 17 },
+        "timeBetweenClicks": 12.4,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 7,
+        "firstClick": { "row": 4, "col": 10 },
+        "secondClick": { "row": 7, "col": 15 },
+        "timeBetweenClicks": 18.7,
+        "shotOccurred": "Yes",
+        "goalScored": "No"
+      },
+      {
+        "id": 8,
+        "firstClick": { "row": 3, "col": 8 },
+        "secondClick": { "row": 5, "col": 26 },
+        "timeBetweenClicks": 10.9,
         "shotOccurred": "Yes",
         "goalScored": "Yes"
+      },
+      {
+        "id": 9,
+        "firstClick": { "row": 6, "col": 5 },
+        "secondClick": { "row": 9, "col": 10 },
+        "timeBetweenClicks": 14.6,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 10,
+        "firstClick": { "row": 5, "col": 3 },
+        "secondClick": { "row": 6, "col": 8 },
+        "timeBetweenClicks": 6.8,
+        "shotOccurred": "No",
+        "goalScored": "No"
       }
     ],
     "Team B": [
@@ -50,6 +106,62 @@
         "timeBetweenClicks": 30.3,
         "shotOccurred": "Yes",
         "goalScored": "No"
+      },
+      {
+        "id": 4,
+        "firstClick": { "row": 4, "col": 3 },
+        "secondClick": { "row": 6, "col": 12 },
+        "timeBetweenClicks": 20.1,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 5,
+        "firstClick": { "row": 2, "col": 8 },
+        "secondClick": { "row": 7, "col": 14 },
+        "timeBetweenClicks": 15.5,
+        "shotOccurred": "Yes",
+        "goalScored": "No"
+      },
+      {
+        "id": 6,
+        "firstClick": { "row": 6, "col": 11 },
+        "secondClick": { "row": 9, "col": 20 },
+        "timeBetweenClicks": 25.0,
+        "shotOccurred": "Yes",
+        "goalScored": "Yes"
+      },
+      {
+        "id": 7,
+        "firstClick": { "row": 3, "col": 10 },
+        "secondClick": { "row": 5, "col": 13 },
+        "timeBetweenClicks": 12.7,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 8,
+        "firstClick": { "row": 4, "col": 4 },
+        "secondClick": { "row": 6, "col": 8 },
+        "timeBetweenClicks": 18.2,
+        "shotOccurred": "Yes",
+        "goalScored": "No"
+      },
+      {
+        "id": 9,
+        "firstClick": { "row": 7, "col": 8 },
+        "secondClick": { "row": 9, "col": 10 },
+        "timeBetweenClicks": 10.6,
+        "shotOccurred": "No",
+        "goalScored": "No"
+      },
+      {
+        "id": 10,
+        "firstClick": { "row": 5, "col": 6 },
+        "secondClick": { "row": 8, "col": 26 },
+        "timeBetweenClicks": 9.3,
+        "shotOccurred": "Yes",
+        "goalScored": "Yes"
       }
     ]
   }

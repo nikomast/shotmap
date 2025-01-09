@@ -1,5 +1,7 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import '../clickCharts/clickCharts.css'
+
 
 const TimeChart = ({ clickHistory }) => {
   const validClicks = clickHistory.filter((click) => click.timeBetweenClicks !== null);
@@ -17,6 +19,7 @@ const TimeChart = ({ clickHistory }) => {
   ];
 
   return (
+    <div className="chart-container">
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
@@ -27,6 +30,7 @@ const TimeChart = ({ clickHistory }) => {
         <Bar dataKey="time" fill="#8884d8" />
       </BarChart>
     </ResponsiveContainer>
+    </div>
   );
 };
 

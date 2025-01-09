@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./GridMap.css";
+import "./gridMap.css";
 
 const GridMap = ({ rows, cols, onCellClick, cellStyles }) => {
   return (

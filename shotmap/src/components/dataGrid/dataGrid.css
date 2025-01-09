@@ -1,11 +1,10 @@
 .dataGrid-container{
-    margin-top: 150px;
-    margin-bottom: 250px;
+    margin-top: 2.5em;
+    margin-bottom: 3em;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;   
-    height: 50vh;   
   }
 
   .legend {

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Modal from "../modal/modal";
 import GridMap from "../gridMap/gridMap";
+import { NotificationManager} from "../notifications/notification";
+
 import "./clickableGrid.css";
 
 const ClickableGrid = ({ rows, cols, onCellClick }) => {
@@ -18,6 +20,13 @@ const ClickableGrid = ({ rows, cols, onCellClick }) => {
     onConfirm: () => {},
   });
 
+  const resetClicks = () => setClicks({
+    firstClick: null,
+    secondClick: null,
+    firstClickTime: null,
+    timeBetweenClicks: null,
+  });  
+
   const handleCellClick = (row, col) => {
     const currentTime = new Date().getTime();
 
@@ -27,6 +36,7 @@ const ClickableGrid = ({ rows, cols, onCellClick }) => {
         firstClick: { row, col },
         firstClickTime: currentTime,
       });
+      NotificationManager.info("First click recorded!");
     } else if (!clicks.secondClick) {
       const timeDifference = (currentTime - clicks.firstClickTime) / 1000;
 
@@ -60,7 +70,9 @@ const ClickableGrid = ({ rows, cols, onCellClick }) => {
                   shotOccurred,
                   goalScored,
                 });
+                NotificationManager.success("Action added successfully!");
                 setModal({ isOpen: false });
+                resetClicks();
               },
             });
           } else {
@@ -69,11 +81,14 @@ const ClickableGrid = ({ rows, cols, onCellClick }) => {
               shotOccurred,
               goalScored: null,
             });
+            NotificationManager.success("Action added successfully!");
             setModal({ isOpen: false });
+            resetClicks();
           }
         },
       });
     } else {
+      NotificationManager.info("First click recorded!");
       setClicks({
         firstClick: { row, col },
         firstClickTime: currentTime,

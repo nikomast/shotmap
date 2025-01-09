@@ -21,6 +21,7 @@
   
   .grid-cell:hover {
     background-color: #e0e0e0; 
+    box-shadow: 0px 0px 15px #ffffff;
   }
   
   .grid-cell:nth-child(4n) {
