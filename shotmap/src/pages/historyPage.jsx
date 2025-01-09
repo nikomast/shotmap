@@ -87,7 +87,13 @@ const HistoryPage = () => {
 
   return (
     <div>
-      {isWideEnough ? (
+      {!isWideEnough ? (
+        <div className="screen-text">
+          <p>
+          Screen is too small. Please rotate your device or use a larger screen.
+          </p>
+        </div>
+      ) : (
         <>
           <h2>Team History</h2>
           {!user && (
@@ -127,13 +133,6 @@ const HistoryPage = () => {
             </>
           )}
         </>
-      ) : (
-        <div className="screen-text">
-          <p>
-            The grid component is not available on smaller screens. Please rotate your device to landscape mode or use a
-            larger screen.
-          </p>
-        </div>
       )}
     </div>
   );

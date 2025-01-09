@@ -13,7 +13,7 @@ const Layout = () => {
         <nav>
           <Link to="/" className="nav-button">Tracker</Link>
           <Link to="/history" className="nav-button">History</Link>
-          <Link to="/predictions" className="nav-button">Predictions</Link>
+          {/**<Link to="/predictions" className="nav-button">Predictions</Link>**/}
           <Link to="/about" className="nav-button">About</Link>
           {user ? (
             <>

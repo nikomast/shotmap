@@ -51,10 +51,14 @@ margin:5em;
 }
 
 .screen-text{
-  margin-top: 3.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  margin-top: 50%;
   color: red; 
   width: 50%; 
-  margin-left: 25%;
+  margin-left: 20%;
 }
 
 /* From Uiverse.io by andrew-demchenk0 */ 
