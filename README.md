@@ -1,5 +1,4 @@
 # Possession Tracker
-
 Possession Tracker is a sports analytics app designed to help users track and analyze ball or puck possession during a game. The app simplifies data collection and provides insights into possession conversions, shots, and goals. Users can save key game information, enabling post-game analysis and future enhancements such as predictive analytics based on past games.
 
 ## Key Features
@@ -31,6 +30,8 @@ A dashboard allows account management and related information, such as creating 
 
 #### Use Case
 The app is particularly useful for coaches, players, or sports enthusiasts who want a simple yet effective way to analyze game performance. The structure also supports use by sports clubs, enabling them to manage multiple teams playing in different series.
+
+![Dashboard](images/loggedIn.png)
 
 ##### Planned Features
 In future updates, the app will incorporate predictive analytics to leverage past game data for generating educated guesses about future game outcomes.
