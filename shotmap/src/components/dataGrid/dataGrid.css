@@ -38,3 +38,9 @@
   .dataGrid-container .grid-cell:hover {
     background-color: transparent !important;
   }
+
+  @media (max-width: 900px){
+    .dataGrid-container{
+      margin-top: 0em;
+    }
+  }

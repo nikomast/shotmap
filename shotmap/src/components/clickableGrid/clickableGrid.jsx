@@ -5,7 +5,7 @@ import { NotificationManager} from "../notifications/notification";
 
 import "./clickableGrid.css";
 
-const ClickableGrid = ({ rows, cols, onCellClick }) => {
+const ClickableGrid = ({ rows, cols, onCellClick, time}) => {
   const [clicks, setClicks] = useState({
     firstClick: null,
     secondClick: null,
@@ -28,7 +28,7 @@ const ClickableGrid = ({ rows, cols, onCellClick }) => {
   });  
 
   const handleCellClick = (row, col) => {
-    const currentTime = new Date().getTime();
+    const currentTime = time || new Date().getTime();
 
     if (!clicks.firstClick) {
       setClicks({
@@ -43,7 +43,8 @@ const ClickableGrid = ({ rows, cols, onCellClick }) => {
       const newClickData = {
         firstClick: clicks.firstClick,
         secondClick: { row, col },
-        timeBetweenClicks: timeDifference,
+        secondClickTime: currentTime,
+        timeBetweenClicks: (currentTime - clicks.firstClickTime) / 1000,
         shotOccurred: null,
         goalScored: null,
       };

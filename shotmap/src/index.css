@@ -13,6 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.main-page{
+  margin: 2em;
+}
+
+.history-page {
+  margin: 5em;
+  height: 80h;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -45,8 +54,8 @@ margin:5em;
   border: 2px solid greenyellow;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers children horizontally */
-  justify-content: center; /* Centers children vertically (optional) */
+  align-items: center; 
+  justify-content: center; 
   gap: 20px;
 }
 
@@ -55,10 +64,8 @@ margin:5em;
   justify-content: center;
   align-items: center;
   padding: 2em;
-  margin-top: 50%;
   color: red; 
-  width: 50%; 
-  margin-left: 20%;
+  font-size: medium;
 }
 
 /* From Uiverse.io by andrew-demchenk0 */ 
@@ -103,7 +110,6 @@ margin:5em;
   font-size: 1.5em;
 }
 
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -114,8 +120,25 @@ margin:5em;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .about-page{
       margin:2em;
       }
+
+  .history-page {
+        margin: 2em;
+      }
+      
+  h2, h3 {
+    font-size: medium;
+  }
+
+  .how-to{
+    font-size: small;
+  }
+
+  .react-select-container {
+    margin: 0.5em auto;
+    width: 90%; 
+}
     }

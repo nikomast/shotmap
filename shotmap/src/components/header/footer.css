@@ -32,8 +32,9 @@ main {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .footer {
         padding: 5px 0px;
+        font-size: small;
     }
 }

@@ -167,12 +167,12 @@ REST_FRAMEWORK = {
 }
 
 ALLOWED_HOSTS = [
-    "shotmap-backend-227592037014.europe-north1.run.app",  
-]
+    "shotmap-backend-227592037014.europe-north1.run.app"]
 
 CORS_ALLOWED_ORIGINS = [
     "https://possession-tracker-dce8c.web.app",
     "https://shotmap-backend-227592037014.europe-north1.run.app",
+    "http://127.0.0.1",
 ]
 
 
@@ -188,7 +188,7 @@ else:
 
 CSRF_TRUSTED_ORIGINS = [
     "https://possession-tracker-dce8c.web.app",
-    "https://shotmap-backend-227592037014.europe-north1.run.app",
+    "https://shotmap-backend-227592037014.europe-north1.run.app"
 ]
 
 CSRF_COOKIE_HTTPONLY = True

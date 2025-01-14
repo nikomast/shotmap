@@ -113,29 +113,28 @@ export const saveMatchAction = async (actionData) => {
     goal_scored: actionData.goalScored === "Yes",
     shot_occurred: actionData.shotOccurred === "Yes",
     time_between_clicks: actionData.timeBetweenClicks,
+    first_click_time: actionData.firstClickTime, 
+    second_click_time: actionData.secondClickTime, 
   };
+
   try {
     const token = localStorage.getItem("access");
     if (!token) throw new Error("No access token found");
 
-    const response = await API.post(
-      "actions/",
-      formattedActionData, 
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await API.post("actions/", formattedActionData, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-    console.log("Action saved successfully:");
     return response.data;
   } catch (error) {
     console.error("Error saving match action:", error);
-    throw error; 
+    throw error;
   }
 };
+
 
 export const endMatch = async (matchId, result) => {
   const token = localStorage.getItem("access");

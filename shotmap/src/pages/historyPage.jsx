@@ -74,9 +74,11 @@ const HistoryPage = () => {
     control: (base) => ({
       ...base,
       borderColor: "blue",
-      margin: "1em",
+      margin: "0.5em auto",
+      padding: "5px",
       boxShadow: "none",
       "&:hover": { borderColor: "darkblue" },
+      width: "100%",
     }),
     option: (base, { isFocused }) => ({
       ...base,
@@ -85,8 +87,13 @@ const HistoryPage = () => {
     }),
   };
 
+  const handleFocus = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div>
+    <div className="history-page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       {!isWideEnough ? (
         <div className="screen-text">
           <p>
@@ -97,14 +104,15 @@ const HistoryPage = () => {
         <>
           <h2>Team History</h2>
           {!user && (
-            <ReactSelect
-              options={teams}
-              value={selectedTeam}
-              onChange={setSelectedTeam}
-              placeholder="Select a team..."
-              isClearable
-              styles={customStyles}
-            />
+          <ReactSelect
+          options={teams}
+          value={selectedTeam}
+          onChange={setSelectedTeam}
+          onFocus={handleFocus}
+          placeholder="Select a team..."
+          isClearable
+          styles={customStyles}
+        />
           )}
           
           {user && <HistoryFilter onMatchActionsChange={handleMatchActionsChange} />}
@@ -112,7 +120,7 @@ const HistoryPage = () => {
           {!selectedTeam && !user && (
             <div style={{ marginTop: "20px", color: "gray" }}>
               <h3>How to use:</h3>
-              <p>Select a team from the dropdown menu above to view historical data related to matches against that team.</p>
+              <p className="how-to">Select a team from the dropdown menu above to view historical data related to matches against that team.</p>
             </div>
           )}
 

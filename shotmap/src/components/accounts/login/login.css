@@ -110,3 +110,70 @@
   background-color: red;
   color: white;
 }
+
+@media (max-width: 900px) {
+  .form {
+    margin-top: 5em; /* Reduce margin */
+    padding: 1em; /* Reduce padding */
+    gap: 15px; /* Reduce spacing between elements */
+    border-radius: 15px; /* Smaller border radius */
+    box-shadow: 0px 0px 10px #ffffff; /* Slightly smaller shadow */
+  }
+
+  #heading {
+    font-size: 1em; /* Reduce font size */
+    margin: 1.5em; /* Reduce margin */
+  }
+
+  .field {
+    padding: 0.5em; /* Reduce padding */
+    gap: 0.3em; /* Reduce gap */
+  }
+
+  .input-icon {
+    height: 1em; /* Reduce size */
+    width: 1em; /* Reduce size */
+  }
+
+  .button1,
+  .button2,
+  .button3 {
+    padding: 0.4em; /* Smaller padding */
+    font-size: 0.9em; /* Slightly smaller text */
+  }
+
+  .button1 {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    margin-right: 0.3em; /* Reduce margin */
+  }
+
+  .button2 {
+    padding-left: 1.5em;
+    padding-right: 1.5em; /* Reduce button size */
+  }
+
+  .button3 {
+    margin-bottom: 2em; /* Reduce bottom margin */
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    margin-top: 3em; /* Further reduce margin */
+    padding: 0.8em; /* Further reduce padding */
+    gap: 10px; /* Further reduce spacing */
+  }
+
+  #heading {
+    font-size: 0.9em; /* Further reduce font size */
+    margin: 1em; /* Further reduce margin */
+  }
+
+  .button1,
+  .button2,
+  .button3 {
+    padding: 0.3em; /* Smaller padding */
+    font-size: 0.8em; /* Smaller text */
+  }
+}

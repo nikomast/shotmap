@@ -1,0 +1,86 @@
+.clock-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #383838;
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px #ffffff;
+    width: 150px;
+    margin: 20px auto; 
+  }
+  
+  .clock {
+    font-size: 2rem; 
+    font-weight: bold;
+    color: #eeeeee; 
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace; /* Monospace for a digital clock vibe */
+  }
+
+  .clock-button {
+    background-color: #000000;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px; 
+    margin: 5px; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
+  }
+  
+  .clock-button:hover {
+    background-color: #050505;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    transform: scale(1.05); 
+  }
+  
+  .clock-button:active {
+    transform: scale(1); /* Remove zoom effect */
+  }
+  
+  .clock-button:disabled {
+    background-color: #ebebeb; 
+    color: #000000; 
+    cursor: not-allowed;
+    box-shadow: none; 
+  }
+  
+  .clock-div:hover {
+    background-color: #1f1f1f; /* Slightly darker background */
+    transform: scale(1.05); /* Slight zoom */
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  .clock-div {
+    animation: pulse 2s infinite;
+  }
+  
+  @media (max-width: 900px) {
+    .clock-div {
+      width: 100px;
+      padding: 10px;
+    }
+  
+    .clock {
+      font-size: 1.5rem;
+    }
+  
+    .clock-button {
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
+  }
